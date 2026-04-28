@@ -645,7 +645,8 @@ const SECTIONS_DEFAULT = [
   id: "email",
   num: "02",
   title: "Automatización de Correos",
-  download: { url: "assets/skill-email-writer.skill", filename: "skill-email-writer.skill", label: "Descargar Skill — Email Writer" },
+  downloads: [
+  { url: "assets/skill-email-writer.skill", filename: "skill-email-writer.skill", label: "Descargar Skill — Email Writer" }],
   icon:
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#09562c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" />
@@ -661,7 +662,9 @@ const SECTIONS_DEFAULT = [
   id: "design",
   num: "03",
   title: "Design Systems",
-  download: { url: "assets/Exiplast_Ventas_Q1_2026.xlsx", filename: "Exiplast_Ventas_Q1_2026.xlsx", label: "Descargar Excel — Exiplast Ventas Q1 2026" },
+  downloads: [
+  { url: "assets/Exiplast_Ventas_Q1_2026.xlsx", filename: "Exiplast_Ventas_Q1_2026.xlsx", label: "Descargar Excel — Exiplast Ventas Q1 2026" },
+  { url: "assets/Exiplast%20identidad%20de%20marca.zip", filename: "Exiplast identidad de marca.zip", label: "Descargar ZIP — Identidad de Marca Exiplast" }],
   icon:
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#09562c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <rect x="3" y="3" width="7" height="7" /><rect x="14" y="3" width="7" height="7" /><rect x="14" y="14" width="7" height="7" /><rect x="3" y="14" width="7" height="7" />
@@ -676,7 +679,7 @@ const SECTIONS_DEFAULT = [
 
 function loadData() {
   try {
-    const stored = localStorage.getItem("colmenia_prompts_v4");
+    const stored = localStorage.getItem("colmenia_prompts_v5");
     if (stored) return JSON.parse(stored);
   } catch (e) {}
   return SECTIONS_DEFAULT;
@@ -685,7 +688,7 @@ function loadData() {
 function saveData(sections) {
   // strip React elements before saving
   const clean = sections.map((s) => ({ ...s, icon: null, prompts: s.prompts }));
-  localStorage.setItem("colmenia_prompts_v4", JSON.stringify(clean));
+  localStorage.setItem("colmenia_prompts_v5", JSON.stringify(clean));
 }
 
 // Re-attach icons after loading from storage
@@ -916,8 +919,8 @@ function App() {
                   </div>
                 </div>
 
-                {section.download && (
-                  <a href={section.download.url} download={section.download.filename} className="download-card" style={{ textDecoration: "none" }}>
+                {section.downloads && section.downloads.map((dl, i) => (
+                  <a key={i} href={dl.url} download={dl.filename} className="download-card" style={{ textDecoration: "none" }}>
                     <div className="download-card-info">
                       <div className="download-icon-box">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -926,7 +929,7 @@ function App() {
                       </div>
                       <div className="download-card-text">
                         <span className="download-card-sub">Recurso descargable</span>
-                        <span className="download-card-title">{section.download.label}</span>
+                        <span className="download-card-title">{dl.label}</span>
                       </div>
                     </div>
                     <button className="download-btn" type="button" onClick={e => e.stopPropagation()}>
@@ -936,7 +939,7 @@ function App() {
                       Descargar
                     </button>
                   </a>
-                )}
+                ))}
 
                 <div className="prompt-grid">
                   {section.prompts.length === 0 ?

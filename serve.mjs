@@ -18,6 +18,7 @@ const MIME = {
   '.ico': 'image/x-icon',
   '.xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
   '.skill': 'application/octet-stream',
+  '.zip': 'application/zip',
   '.ttf': 'font/ttf',
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
@@ -25,7 +26,7 @@ const MIME = {
 
 http.createServer((req, res) => {
   const decodedUrl = decodeURIComponent(req.url.split('?')[0]);
-  let filePath = path.join(__dirname, decodedUrl === '/' ? 'Prompt Library.html' : decodedUrl);
+  let filePath = path.join(__dirname, decodedUrl === '/' ? 'index.html' : decodedUrl);
   const ext = path.extname(filePath).toLowerCase();
   const mime = MIME[ext] || 'text/plain';
   fs.readFile(filePath, (err, data) => {
