@@ -1,0 +1,265 @@
+/* ============================================================
+   COLMEN IA — Design System
+   colors_and_type.css
+   ============================================================ */
+
+/* ── Font Faces ─────────────────────────────────────────── */
+@font-face {
+  font-family: "Anta";
+  src: url("fonts/Anta-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Tilt Neon";
+  src: url("fonts/TiltNeon-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("fonts/Poppins-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* ── Base Color Tokens ──────────────────────────────────── */
+:root {
+  /* Brand Primaries */
+  --color-neon-green:       #12f280;
+  --color-dark-green:       #09562c;
+  --color-electric-blue:    #0f3bfe;
+  --color-near-black:       #151716;
+  --color-white:            #ffffff;
+
+  /* Tints & Shades */
+  --color-neon-green-10:    rgba(18, 242, 128, 0.10);
+  --color-neon-green-20:    rgba(18, 242, 128, 0.20);
+  --color-neon-green-40:    rgba(18, 242, 128, 0.40);
+  --color-neon-green-60:    rgba(18, 242, 128, 0.60);
+  --color-dark-green-10:    rgba(9, 86, 44, 0.10);
+  --color-electric-blue-10: rgba(15, 59, 254, 0.10);
+  --color-near-black-80:    rgba(21, 23, 22, 0.80);
+
+  /* ── Semantic Colors ──────────────────────────────────── */
+  --fg-primary:     var(--color-near-black);
+  --fg-secondary:   rgba(21, 23, 22, 0.60);
+  --fg-muted:       rgba(21, 23, 22, 0.40);
+  --fg-on-dark:     var(--color-white);
+  --fg-accent:      var(--color-neon-green);
+
+  --bg-base:        var(--color-white);
+  --bg-surface:     #f6fef9;
+  --bg-dark:        var(--color-near-black);
+  --bg-dark-surface:#1c2120;
+  --bg-accent:      var(--color-neon-green);
+  --bg-accent-dark: var(--color-dark-green);
+
+  --border-default: rgba(21, 23, 22, 0.12);
+  --border-accent:  var(--color-neon-green);
+  --border-dark:    var(--color-dark-green);
+
+  /* ── Gradients ────────────────────────────────────────── */
+  --gradient-hero:          linear-gradient(135deg, #12f280 0%, #09562c 100%);
+  --gradient-green-blue:    linear-gradient(135deg, #0f3bfe 0%, #12f280 50%, #09562c 100%);
+  --gradient-light-green:   radial-gradient(ellipse at bottom right, #12f280 0%, rgba(18,242,128,0.15) 50%, #fff 100%);
+  --gradient-light-blue:    radial-gradient(ellipse at top left, #b3bcff 0%, #fff 70%);
+  --gradient-dark-cover:    linear-gradient(135deg, #151716 0%, #09562c 100%);
+  --gradient-neon-bloom:    radial-gradient(ellipse at center, rgba(18,242,128,0.5) 0%, transparent 70%);
+
+  /* ── Shadows ──────────────────────────────────────────── */
+  --shadow-sm:      0 2px 8px rgba(0,0,0,0.08);
+  --shadow-md:      0 4px 16px rgba(0,0,0,0.12);
+  --shadow-lg:      0 8px 32px rgba(0,0,0,0.16);
+  --shadow-glow-green: 0 4px 24px rgba(18, 242, 128, 0.30);
+  --shadow-glow-green-lg: 0 8px 48px rgba(18, 242, 128, 0.40);
+
+  /* ── Spacing Scale ────────────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ── Border Radii ─────────────────────────────────────── */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  /* ── Typography: Font Stacks ──────────────────────────── */
+  --font-headline:  "Anta", "Arial Black", sans-serif;
+  --font-subtitle:  "Tilt Neon", "Verdana", sans-serif;
+  --font-body:      "Poppins", "Segoe UI", sans-serif;
+
+  /* ── Typography: Scale ────────────────────────────────── */
+  --text-xs:   0.75rem;   /* 12px */
+  --text-sm:   0.875rem;  /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg:   1.125rem;  /* 18px */
+  --text-xl:   1.25rem;   /* 20px */
+  --text-2xl:  1.5rem;    /* 24px */
+  --text-3xl:  1.875rem;  /* 30px */
+  --text-4xl:  2.25rem;   /* 36px */
+  --text-5xl:  3rem;      /* 48px */
+  --text-6xl:  3.75rem;   /* 60px */
+  --text-7xl:  4.5rem;    /* 72px */
+
+  /* ── Semantic Type Roles ──────────────────────────────── */
+  /* h1: Anta, large, tight tracking */
+  --h1-font:    var(--font-headline);
+  --h1-size:    var(--text-5xl);
+  --h1-weight:  400;
+  --h1-lh:      1.1;
+  --h1-ls:      0.02em;
+
+  /* h2: Anta, medium */
+  --h2-font:    var(--font-headline);
+  --h2-size:    var(--text-3xl);
+  --h2-weight:  400;
+  --h2-lh:      1.2;
+  --h2-ls:      0.02em;
+
+  /* h3: Tilt Neon, subtitle */
+  --h3-font:    var(--font-subtitle);
+  --h3-size:    var(--text-xl);
+  --h3-weight:  400;
+  --h3-lh:      1.3;
+  --h3-ls:      0;
+
+  /* p: Poppins regular */
+  --p-font:     var(--font-body);
+  --p-size:     var(--text-base);
+  --p-weight:   400;
+  --p-lh:       1.65;
+  --p-ls:       0;
+
+  /* label / caption */
+  --label-font:   var(--font-body);
+  --label-size:   var(--text-sm);
+  --label-weight: 600;
+  --label-ls:     0.05em;
+
+  --caption-font:   var(--font-body);
+  --caption-size:   var(--text-xs);
+  --caption-weight: 400;
+  --caption-ls:     0.02em;
+}
+
+/* ── Semantic Element Defaults ──────────────────────────── */
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--fg-primary);
+  background: var(--bg-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-family: var(--h1-font);
+  font-size: var(--h1-size);
+  font-weight: var(--h1-weight);
+  line-height: var(--h1-lh);
+  letter-spacing: var(--h1-ls);
+  color: var(--fg-primary);
+}
+
+h2 {
+  font-family: var(--h2-font);
+  font-size: var(--h2-size);
+  font-weight: var(--h2-weight);
+  line-height: var(--h2-lh);
+  letter-spacing: var(--h2-ls);
+  color: var(--fg-primary);
+}
+
+h3 {
+  font-family: var(--h3-font);
+  font-size: var(--h3-size);
+  font-weight: var(--h3-weight);
+  line-height: var(--h3-lh);
+  letter-spacing: var(--h3-ls);
+  color: var(--fg-primary);
+}
+
+p {
+  font-family: var(--p-font);
+  font-size: var(--p-size);
+  font-weight: var(--p-weight);
+  line-height: var(--p-lh);
+}
+
+/* ── Utility Classes ────────────────────────────────────── */
+.text-headline  { font-family: var(--font-headline); }
+.text-subtitle  { font-family: var(--font-subtitle); }
+.text-body      { font-family: var(--font-body); }
+
+.text-neon-green    { color: var(--color-neon-green); }
+.text-dark-green    { color: var(--color-dark-green); }
+.text-electric-blue { color: var(--color-electric-blue); }
+.text-on-dark       { color: var(--color-white); }
+
+.bg-dark         { background: var(--bg-dark); }
+.bg-dark-surface { background: var(--bg-dark-surface); }
+.bg-accent       { background: var(--color-neon-green); }
+.bg-gradient-hero { background: var(--gradient-hero); }
